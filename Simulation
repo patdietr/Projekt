@@ -11,7 +11,7 @@
         "type": "file in",
         "z": "959dfc43.8dab5",
         "name": "",
-        "filename": "/home/pi/Desktop/trackLog1.csv",
+        "filename": "/home/pi/Desktop/trackLog.csv",
         "format": "lines",
         "chunk": false,
         "sendError": false,
@@ -82,8 +82,7 @@
         "y": 160,
         "wires": [
             [
-                "954969cf.dabe48",
-                "9b766c2f.2334b"
+                "954969cf.dabe48"
             ]
         ]
     },
@@ -91,11 +90,11 @@
         "id": "954969cf.dabe48",
         "type": "function",
         "z": "959dfc43.8dab5",
-        "name": "",
-        "func": "// var test = msg.payload[\"GPS Time\"];\n\n// Einlesen der Werte aus CSV und speichern\n// in eigenen Variablen\n\nvar Zeit = msg.payload[\"GPS Time\"];\nvar Geraetezeit = msg.payload[\"Device Time\"];\nvar Longitude = msg.payload.Longitude;\nvar Latitude = msg.payload.Latitude;\nvar GPSGeschwindigkeit = msg.payload[\"GPS Speed(km/h)\"];\nvar HorizDiluofPreci = msg.payload[\"Horizontal Dilution of Precision\"];\nvar Altitude = msg.payload[\"Altitude(m)\"];\nvar Bearing = msg.payload.Bearing;\nvar Gravity_X = msg.payload[\"Gravity X(G)\"];\nvar Gravity_Y = msg.payload[\"Gravity Y(G)\"];\nvar Gravity_Z = msg.payload[\"Gravity Z(G)\"];\nvar EGR = msg.payload[\"EGR Commanded(%)\"];\nvar Lambda = msg.payload[\"Commanded Equivalence Ratio(lambda)\"];\nvar CO = msg.payload[\"CO₂ in g/km (Instantaneous)(g/km)\"];\nvar MassAirFlowRate = msg.payload[\"Mass Air Flow Rate(g/s)\"];\nvar Geschwindigkeit = msg.payload[\"Speed (OBD)(km/h)\"];\nvar TransmissionTemperature = msg.payload[\"Transmission Temperature(Method 1)(°F)\"];\nvar GPSLatitude = msg.payload[\"GPS Latitude(°)\"];\nvar GPSLongitude = msg.payload[\"GPS Longitude(°)\"];\nvar KuehlmitteltemperaturF = msg.payload[\"Engine Coolant Temperature(°F)\"];\nvar Motorlast = msg.payload[\"Engine Load(%)\"];\nvar MotorlastAbsolut = msg.payload[\"Engine Load(Absolute)(%)\"];\nvar o2Sensor1 = msg.payload[\"O2 Sensor1 wide-range Voltage\"];\nvar o2Sensor2 = msg.payload[\"O2 Sensor1 Equivalence Ratio\"];\nvar Gaspedalstellung = msg.payload[\"Accelerator PedalPosition D(%)\"];\nvar RelativeGaspedalstellung = msg.payload[\"Relative Accelerator Pedal Position(%)\"];\nvar Saugrohrdruck = msg.payload[\"Intake Manifold Pressure(kpa)\"];\nvar Batteriespannung = msg.payload[\"Voltage (Control Module)(V)\"];\nvar Benzinstand = msg.payload[\"Fuel Level (From Engine ECU)(%)\"];\nvar ActualEngineTorque = msg.payload[\"Actual engine % torque(%)\"];\nvar AnsauglufttemperaturF = msg.payload[\"Intake Air Temperature(°F)\"];\nvar Kraftstoffdurchflussmenge = msg.payload[\"Fuel flow rate/minute(cc/min)\"];\nvar Boost = msg.payload[\"Turbo Boost & Vacuum Gauge(bar)\"];\nvar Motordrehzahl = msg.payload[\"Engine RPM(rpm)\"];\nvar UmgebungstemperaturF = msg.payload[\"Ambient air temp(°F)\"];\n\n\n////////////////////////////////////////////\n// Selbst eingefügte Werte\n////////////////////////////////////////////\n\n\n\n\n\n// Umrechnung Kühlmitteltemperatur von ° F in ° C\nvar Kuehlmitteltemperatur = (KuehlmitteltemperaturF - 32) / 1.8;\n\n// Umrechnung Ansauglufttemperatur von ° F in ° C\nvar Ansauglufttemperatur = (AnsauglufttemperaturF - 32) / 1.8;\n\n// Umrechnung Umgebungstemperatur von ° F in ° C\nvar Umgebungstemperatur = (UmgebungstemperaturF - 32) / 1.8;\n\n// Ersetzt die aus der CSV eingelesene Uhrzeit\n// durch die aktuelle Zeit\n\nvar ZeitAktuell = new Date();\n//msg.payload = ZeitAktuell;\n\n// Datumsformatierung Papa\n\nvar dtString= ZeitAktuell.getDate()+\".\"+\n                (ZeitAktuell.getMonth()<9?\"0\":\"\")+\n                (1+ZeitAktuell.getMonth())+\".\"+\n                ZeitAktuell.getFullYear()+\" \"+ \n                ZeitAktuell.getHours()+\":\"+\n                (ZeitAktuell)+\n                ZeitAktuell.getMinutes()+\":\"+\n                (ZeitAktuell.getSeconds()<10?\"0\":\"\")+\n                ZeitAktuell.getSeconds();\n\n\n\n// Fertiges Objekt Rohdaten, was wieder rausgeschickt wird\n\nvar Fertig = {\n    \"payload\": {\n        \"GPS Zeit\": dtString,\n        \"Laengengrad\": Longitude,\n        \"Breitengrad\": Latitude,\n        \"Hoehe über Meeresspiegel\": Altitude,\n        \"Horizontale Praezisionsverdünnung\": HorizDiluofPreci,\n        \"Bearing / Lager\": Bearing,\n        \"G Kraft in X Richtung\": Gravity_X,\n        \"G Kraft in Y Richtung\": Gravity_Y,\n        \"G Kraft in Z Richtung\": Gravity_Z,\n        \"Befohlenes Aequivalenzverhaeltnis\": Lambda,\n        \"CO2 Ausstoss\": CO,\n        \"Luftmassenstrom\": MassAirFlowRate,\n        \"Geschwindigkeit\": Geschwindigkeit,\n        \"Kuehlmitteltemperatur in C\": Kuehlmitteltemperatur,\n        \"Motorlast Prozent\": Motorlast,\n        \"Batteriespannung\": Batteriespannung,\n        \"Tankfuellung\": Benzinstand,\n        \"Ansauglufttemperatur in C\": Ansauglufttemperatur,\n        \"Motordrehzahl\": Motordrehzahl,\n        \"Umgebungstemperatur\": Umgebungstemperatur,\n        \"Anzahl Insassen\": \"test\",\n        \"Errorcode\": 12345,\n        \"Fahrbereit\": \"Natürlich :D\"\n    }\n}\n//msg = {payload: (\"GPS Time\", ZeitAktuell)};\n//msg.payload = ZeitAktuell\nreturn Fertig;\n//return msg;\n\n",
+        "name": "Umwandlung",
+        "func": "// Einlesen der Werte aus CSV und speichern\n// in eigenen Variablen\n\nvar Zeit = msg.payload[\"GPS Time\"];\nvar Geraetezeit = msg.payload[\"Device Time\"];\nvar Longitude = msg.payload.Longitude;\nvar Latitude = msg.payload.Latitude;\nvar GPSGeschwindigkeit = msg.payload[\"GPS Speed(km/h)\"];\nvar HorizDiluofPreci = msg.payload[\"Horizontal Dilution of Precision\"];\nvar Altitude = msg.payload[\"Altitude(m)\"];\nvar Bearing = msg.payload.Bearing;\nvar Gravity_X = msg.payload[\"Gravity X(G)\"];\nvar Gravity_Y = msg.payload[\"Gravity Y(G)\"];\nvar Gravity_Z = msg.payload[\"Gravity Z(G)\"];\nvar EGR = msg.payload[\"EGR Commanded(%)\"];\nvar Lambda = msg.payload[\"Commanded Equivalence Ratio(lambda)\"];\nvar CO = msg.payload[\"CO₂ in g/km (Instantaneous)(g/km)\"];\nvar MassAirFlowRate = msg.payload[\"Mass Air Flow Rate(g/s)\"];\nvar Geschwindigkeit = msg.payload[\"Speed (OBD)(km/h)\"];\nvar TransmissionTemperature = msg.payload[\"Transmission Temperature(Method 1)(°F)\"];\nvar GPSLatitude = msg.payload[\"GPS Latitude(°)\"];\nvar GPSLongitude = msg.payload[\"GPS Longitude(°)\"];\nvar KuehlmitteltemperaturF = msg.payload[\"Engine Coolant Temperature(°F)\"];\nvar Motorlast = msg.payload[\"Engine Load(%)\"];\nvar MotorlastAbsolut = msg.payload[\"Engine Load(Absolute)(%)\"];\nvar o2Sensor1 = msg.payload[\"O2 Sensor1 wide-range Voltage\"];\nvar o2Sensor2 = msg.payload[\"O2 Sensor1 Equivalence Ratio\"];\nvar Gaspedalstellung = msg.payload[\"Accelerator PedalPosition D(%)\"];\nvar RelativeGaspedalstellung = msg.payload[\"Relative Accelerator Pedal Position(%)\"];\nvar Saugrohrdruck = msg.payload[\"Intake Manifold Pressure(kpa)\"];\nvar Batteriespannung = msg.payload[\"Voltage (Control Module)(V)\"];\nvar Benzinstand = msg.payload[\"Fuel Level (From Engine ECU)(%)\"];\nvar ActualEngineTorque = msg.payload[\"Actual engine % torque(%)\"];\nvar AnsauglufttemperaturF = msg.payload[\"Intake Air Temperature(°F)\"];\nvar Kraftstoffdurchflussmenge = msg.payload[\"Fuel flow rate/minute(cc/min)\"];\nvar Boost = msg.payload[\"Turbo Boost & Vacuum Gauge(bar)\"];\nvar Motordrehzahl = msg.payload[\"Engine RPM(rpm)\"];\nvar UmgebungstemperaturF = msg.payload[\"Ambient air temp(°F)\"];\n\n\n////////////////////////////////////////////\n// Selbst eingefügte Werte\n////////////////////////////////////////////\n\nvar Insassen = global.get (\"Fahrzeug1Insassen\");\nvar Errorcode = global.get (\"Fahrzeug1Error\");\nvar Bereit = global.get (\"Fahrzeug1Bereit\");\nvar GravMod = global.get(\"Fahrzeug1G\");\nvar KuehlMod = global.get(\"Fahrzeug1Kuehlmittel\");\n\n\n////////////////////////////////////////////\n// Umrechnungen\n////////////////////////////////////////////\n\n// Umrechnung Kühlmitteltemperatur von ° F in ° C\nvar Kuehlmitteltemperatur = (KuehlmitteltemperaturF - 32) / 1.8;\n\n// Umrechnung Ansauglufttemperatur von ° F in ° C\nvar Ansauglufttemperatur = (AnsauglufttemperaturF - 32) / 1.8;\n\n// Umrechnung Umgebungstemperatur von ° F in ° C\nvar Umgebungstemperatur = (UmgebungstemperaturF - 32) / 1.8;\n\n// Ersetzt die aus der CSV eingelesene Uhrzeit\n// durch die aktuelle Zeit\n\n\n\n////////////////////////////////////////////\n// Manuelle Änderung von Werten\n////////////////////////////////////////////\n\nvar Gravity_XMod = Gravity_X + GravMod;\nvar Gravity_YMod = Gravity_Y + GravMod;\nvar Gravity_ZMod = Gravity_Z + GravMod;\nvar KuehlmitteltemperaturMod = Kuehlmitteltemperatur + KuehlMod;\n\nvar ZeitAktuell = new Date();\n//msg.payload = ZeitAktuell;\n\n// Datumsformatierung Papa\nvar dtString= ZeitAktuell.getDate()+\".\"+\n                (ZeitAktuell.getMonth()<9?\"0\":\"\")+\n                (1+ZeitAktuell.getMonth())+\".\"+\n                ZeitAktuell.getFullYear()+\" \"+ \n                ZeitAktuell.getHours()+\":\"+\n                (ZeitAktuell)+\n                ZeitAktuell.getMinutes()+\":\"+\n                (ZeitAktuell.getSeconds()<10?\"0\":\"\")+\n                ZeitAktuell.getSeconds();\n\n\n////////////////////////////////////////////\n// Fertiges Objekt Rohdaten, was wieder \n// rausgeschickt wird\n////////////////////////////////////////////\n\nvar Fertig = {\n    \"payload\": {\n        \"GPS Zeit\": dtString,\n        \"Laengengrad\": Longitude,\n        \"Breitengrad\": Latitude,\n        \"Hoehe über Meeresspiegel\": Altitude,\n        \"Horizontale Praezisionsverdünnung\": HorizDiluofPreci,\n        \"Bearing / Lager\": Bearing,\n        \"G Kraft in X Richtung\": Gravity_X,\n        \"G Kraft in Y Richtung\": Gravity_Y,\n        \"G Kraft in Z Richtung\": Gravity_Z,\n        \"G Modifizierung\": GravMod,\n        \"G Kraft X modifiziert\": Gravity_XMod,\n        \"G Kraft Y modifiziert\": Gravity_YMod,\n        \"G Kraft Z modifiziert\": Gravity_ZMod,\n        \"Befohlenes Aequivalenzverhaeltnis\": Lambda,\n        \"CO2 Ausstoss\": CO,\n        \"Luftmassenstrom\": MassAirFlowRate,\n        \"Geschwindigkeit\": Geschwindigkeit,\n        \"Kuehlmitteltemperatur in C\": Kuehlmitteltemperatur,\n        \"Kuehlmittel Modifizierung\": KuehlMod,\n        \"Kuehlmittel modifiziert\": KuehlmitteltemperaturMod,\n        \"Motorlast Prozent\": Motorlast,\n        \"Batteriespannung\": Batteriespannung,\n        \"Tankfuellung\": Benzinstand,\n        \"Ansauglufttemperatur in C\": Ansauglufttemperatur,\n        \"Motordrehzahl\": Motordrehzahl,\n        \"Umgebungstemperatur\": Umgebungstemperatur,\n        \"Anzahl Insassen\": Insassen,\n        \"Errorcode\": Errorcode,\n        \"Fahrbereit\": Bereit\n    }\n}\n\nreturn Fertig;\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 450,
+        "x": 470,
         "y": 160,
         "wires": [
             [
@@ -140,21 +139,6 @@
         ]
     },
     {
-        "id": "2631c0a6.8539e",
-        "type": "debug",
-        "z": "959dfc43.8dab5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 590,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "276845ee.61307a",
         "type": "ui_slider",
         "z": "959dfc43.8dab5",
@@ -172,10 +156,10 @@
         "max": "5",
         "step": 1,
         "x": 80,
-        "y": 520,
+        "y": 360,
         "wires": [
             [
-                "b0f9d079.1dbb3"
+                "45eefbb1.069914"
             ]
         ]
     },
@@ -203,96 +187,210 @@
         "officon": "",
         "offcolor": "",
         "x": 90,
-        "y": 600,
+        "y": 440,
         "wires": [
             [
-                "5f62e508.cc3a8c"
+                "2398da0b.06eb66"
             ]
         ]
     },
     {
-        "id": "9a155ba2.f6a5a8",
+        "id": "2398da0b.06eb66",
         "type": "function",
         "z": "959dfc43.8dab5",
-        "name": "",
-        "func": "var Fahrbereitschaft = msg.fahrbereit;\nvar Insassen = msg.insassen;\n\nvar Fertig = {\n    \"payload\": {\n        \"Insassen\": Insassen,\n        \"Fahrbereit\": Fahrbereitschaft\n    }\n}\nreturn Fertig;",
+        "name": "Fahrbereit setzen",
+        "func": "global.set(\"Fahrzeug1Bereit\", msg.payload);",
         "outputs": 1,
         "noerr": 0,
-        "x": 410,
-        "y": 480,
+        "x": 310,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45eefbb1.069914",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Insassen setzen",
+        "func": "global.set(\"Fahrzeug1Insassen\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a560413.190c2c",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Error 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Errorcode 1",
+        "payloadType": "str",
+        "topic": "",
+        "x": 70,
+        "y": 520,
         "wires": [
             [
-                "2631c0a6.8539e"
+                "f7d1c609.8c78e8"
             ]
         ]
     },
     {
-        "id": "5f62e508.cc3a8c",
-        "type": "change",
+        "id": "ad8ea817.aa2d28",
+        "type": "ui_button",
         "z": "959dfc43.8dab5",
         "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "",
-                "fromt": "msg",
-                "to": "fahrbereit",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
+        "group": "ae3148b0.53c498",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Error 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Errorcode 2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 70,
+        "y": 580,
+        "wires": [
+            [
+                "f7d1c609.8c78e8"
+            ]
+        ]
+    },
+    {
+        "id": "39a2abf0.9189d4",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Error 3",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Errorcode 3",
+        "payloadType": "str",
+        "topic": "",
+        "x": 70,
+        "y": 640,
+        "wires": [
+            [
+                "f7d1c609.8c78e8"
+            ]
+        ]
+    },
+    {
+        "id": "f7d1c609.8c78e8",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Errorcode setzen",
+        "func": "global.set(\"Fahrzeug1Error\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
         "x": 320,
-        "y": 620,
+        "y": 580,
         "wires": [
             []
         ]
     },
     {
-        "id": "b0f9d079.1dbb3",
-        "type": "change",
+        "id": "8ad78100.31c65",
+        "type": "ui_slider",
         "z": "959dfc43.8dab5",
         "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "",
-                "fromt": "msg",
-                "to": "insassen",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 180,
-        "y": 320,
+        "label": "G Kräfte",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "10",
+        "step": 1,
+        "x": 80,
+        "y": 720,
+        "wires": [
+            [
+                "923739c4.6ee2d8"
+            ]
+        ]
+    },
+    {
+        "id": "57d48161.d1c85",
+        "type": "ui_slider",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "label": "Kühlmitteltemperatur",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "x": 120,
+        "y": 780,
+        "wires": [
+            [
+                "ecd93dbd.6a734"
+            ]
+        ]
+    },
+    {
+        "id": "923739c4.6ee2d8",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Veränderung G Kräfte",
+        "func": "global.set(\"Fahrzeug1G\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 720,
         "wires": [
             []
         ]
     },
     {
-        "id": "9b969a73.ca2158",
-        "type": "debug",
+        "id": "ecd93dbd.6a734",
+        "type": "function",
         "z": "959dfc43.8dab5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 440,
-        "y": 340,
-        "wires": []
+        "name": "Veränderung Kühlmitteltemperatur",
+        "func": "global.set(\"Fahrzeug1Kuehlmittel\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 780,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "ae3148b0.53c498",
