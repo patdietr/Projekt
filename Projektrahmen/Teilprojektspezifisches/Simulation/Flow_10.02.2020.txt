@@ -1,0 +1,2002 @@
+[
+    {
+        "id": "ef746637.8e6288",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "959dfc43.8dab5",
+        "type": "tab",
+        "label": "Simulation",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "921bc19d.c8733",
+        "type": "tab",
+        "label": "Tests",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dd038d25.c9f7e",
+        "type": "tab",
+        "label": "Fahrzeug1_Cockpit",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fb586813.dca0d8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "c07be590.fcab68",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Mosquitto_lokal",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "29a8b64c.103cfa",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "Error: node-Red started",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "willTopic": "Error: node-Red lost",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": ""
+    },
+    {
+        "id": "acc64fde.6c13c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Fahrzeug1_Cockpit",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ae3148b0.53c498",
+        "type": "ui_group",
+        "z": "",
+        "name": "Fahrbereit",
+        "tab": "64e8b770.132f38",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7ce5f44b.5e2bdc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Fahrzeugsimulation",
+        "tab": "acc64fde.6c13c",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "64e8b770.132f38",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Allgemein",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cf6b21ce.48f08",
+        "type": "file in",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "filename": "/home/pi/Desktop/trackLog.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "3be1b4b3.1935fc"
+            ]
+        ]
+    },
+    {
+        "id": "3be1b4b3.1935fc",
+        "type": "csv",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "8f736252.aad2a"
+            ]
+        ]
+    },
+    {
+        "id": "e9a14a7.01426b8",
+        "type": "debug",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1070,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d49550b1.19bdb",
+        "type": "inject",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "cf6b21ce.48f08"
+            ]
+        ]
+    },
+    {
+        "id": "8f736252.aad2a",
+        "type": "function",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "func": "\nvar ausgabe = {payload: msg.payload[0]};\nreturn ausgabe;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 100,
+        "wires": [
+            [
+                "e9a14a7.01426b8"
+            ]
+        ]
+    },
+    {
+        "id": "c1251668.82bf38",
+        "type": "rpi-gpio in",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "pin": "38",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "877b9e12.4ba3f"
+            ]
+        ]
+    },
+    {
+        "id": "877b9e12.4ba3f",
+        "type": "debug",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 360,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d7359f8a.f1c8d",
+        "type": "LCD20x4-I2C",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "speed": "3",
+        "size": "20x4",
+        "address": "0x27",
+        "x": 640,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6fe0d818.8f3b38",
+        "type": "inject",
+        "z": "ef746637.8e6288",
+        "name": "test",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "ca59a084.d9234"
+            ]
+        ]
+    },
+    {
+        "id": "ca59a084.d9234",
+        "type": "function",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "func": "msg.payload = {\n    msgs: [\n        {\n            msg: \"Du\",\n            pos: 1,\n            center: true\n        },\n        {\n            msg: \"Opfer\",\n            pos: 1,\n            center: false\n        }]}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "d7359f8a.f1c8d",
+                "1acf4048.53c62"
+            ]
+        ]
+    },
+    {
+        "id": "f61e8827.05be48",
+        "type": "comment",
+        "z": "ef746637.8e6288",
+        "name": "I2C LCD",
+        "info": "Test fürs LCD",
+        "x": 160,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "90d42870.f1dbf8",
+        "type": "comment",
+        "z": "ef746637.8e6288",
+        "name": "Taster",
+        "info": "Test fürn Taster",
+        "x": 150,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6e61e98c.d40c68",
+        "type": "comment",
+        "z": "ef746637.8e6288",
+        "name": "CSV einlesen",
+        "info": "CSV wird eingelesen (liegt am Desktop)\n",
+        "x": 170,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1acf4048.53c62",
+        "type": "debug",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "23edad38.83c812",
+        "type": "rpi-gpio in",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "pin": "23",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 90,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7cee32a.74f82",
+        "type": "rpi-gpio in",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "pin": "8",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 90,
+        "y": 740,
+        "wires": [
+            [
+                "b0544839.aa5368"
+            ]
+        ]
+    },
+    {
+        "id": "c96435a2.efd888",
+        "type": "rpi-gpio in",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "pin": "10",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 90,
+        "y": 800,
+        "wires": [
+            [
+                "b0544839.aa5368"
+            ]
+        ]
+    },
+    {
+        "id": "b0544839.aa5368",
+        "type": "ui_chart",
+        "z": "ef746637.8e6288",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8eaa9ab.3e9188",
+        "type": "file in",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "filename": "/home/pi/Desktop/trackLog.csv",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "eabd056e.f2be68"
+            ]
+        ]
+    },
+    {
+        "id": "f0cdbb44.46a5c8",
+        "type": "inject",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "c8eaa9ab.3e9188"
+            ]
+        ]
+    },
+    {
+        "id": "954969cf.dabe48",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Umwandlung",
+        "func": "// Einlesen der Werte aus CSV und speichern\n// in eigenen Variablen\n\nvar Zeit = [\"GPS Time\"];\nvar Geraetezeit = [\"Device Time\"];\nvar Longitude = msg.Longitude;\nvar Latitude = msg.Latitude;\nvar GPSGeschwindigkeit = [\"GPS Speed(km/h)\"];\nvar HorizDiluofPreci = msg[\"Horizontal Dilution of Precision\"];\nvar Altitude = msg[\"Altitude(m)\"];\nvar BearingV = msg.Bearing;\nvar Gravity_X = msg[\"Gravity X(G)\"];\nvar Gravity_Y = msg[\"Gravity Y(G)\"];\nvar Gravity_Z = msg[\"Gravity Z(G)\"];\nvar EGR = [\"EGR Commanded(%)\"];\nvar Lambda = msg[\"Commanded Equivalence Ratio(lambda)\"];\nvar CO = msg[\"CO₂ in g/km (Instantaneous)(g/km)\"];\nvar MassAirFlowRate = msg[\"Mass Air Flow Rate(g/s)\"];\nvar Geschwindigkeit = msg[\"Speed (OBD)(km/h)\"];\nvar TransmissionTemperature = [\"Transmission Temperature(Method 1)(°F)\"];\nvar GPSLatitude = [\"GPS Latitude(°)\"];\nvar GPSLongitude = [\"GPS Longitude(°)\"];\nvar KuehlmitteltemperaturF = msg[\"Engine Coolant Temperature(°F)\"];\nvar Motorlast = msg[\"Engine Load(%)\"];\nvar MotorlastAbsolut = [\"Engine Load(Absolute)(%)\"];\nvar o2Sensor1 = [\"O2 Sensor1 wide-range Voltage\"];\nvar o2Sensor2 = [\"O2 Sensor1 Equivalence Ratio\"];\nvar Gaspedalstellung = [\"Accelerator PedalPosition D(%)\"];\nvar RelativeGaspedalstellung = [\"Relative Accelerator Pedal Position(%)\"];\nvar Saugrohrdruck = [\"Intake Manifold Pressure(kpa)\"];\nvar Batteriespannung = msg[\"Voltage (Control Module)(V)\"];\nvar Benzinstand = msg[\"Fuel Level (From Engine ECU)(%)\"];\nvar ActualEngineTorque = [\"Actual engine % torque(%)\"];\nvar AnsauglufttemperaturF = msg[\"Intake Air Temperature(°F)\"];\nvar Kraftstoffdurchflussmenge = [\"Fuel flow rate/minute(cc/min)\"];\nvar Boost = [\"Turbo Boost & Vacuum Gauge(bar)\"];\nvar Motordrehzahl = msg[\"Engine RPM(rpm)\"];\nvar UmgebungstemperaturF = msg[\"Ambient air temp(°F)\"];\n\n\n////////////////////////////////////////////\n// Selbst eingefügte Werte\n////////////////////////////////////////////\n\nvar Insassen = global.get (\"Fahrzeug1Insassen\");\nvar Errorcode = global.get (\"Fahrzeug1Error\");\nvar Bereit = global.get (\"Fahrzeug1Bereit\");\nvar GravMod = global.get(\"Fahrzeug1G\");\nvar KuehlMod = global.get(\"Fahrzeug1Kuehlmittel\");\nvar Vin = global.get(\"Fahrzeug1ID\");\nvar Airbag = global.get(\"Fahrzeug1Airbag\");\n\n\n////////////////////////////////////////////\n// Umrechnungen\n////////////////////////////////////////////\n\n// Umrechnung Kühlmitteltemperatur von ° F in ° C\nvar Kuehlmitteltemperatur = (KuehlmitteltemperaturF - 32) / 1.8;\n\n// Umrechnung Ansauglufttemperatur von ° F in ° C\nvar Ansauglufttemperatur = (AnsauglufttemperaturF - 32) / 1.8;\n\n// Umrechnung Umgebungstemperatur von ° F in ° C\nvar Umgebungstemperatur = (UmgebungstemperaturF - 32) / 1.8;\n\n// Ersetzt die aus der CSV eingelesene Uhrzeit\n// durch die aktuelle Zeit\n\n\n\n////////////////////////////////////////////\n// Manuelle Änderung von Werten\n////////////////////////////////////////////\n\nvar Gravity_XMod = Gravity_X + GravMod;\nvar Gravity_YMod = Gravity_Y + GravMod;\nvar Gravity_ZMod = Gravity_Z + GravMod;\nvar KuehlmitteltemperaturMod = Kuehlmitteltemperatur + KuehlMod;\n\nvar ZeitAktuell = new Date();\n//msg.payload = ZeitAktuell;\n\n// Datumsformatierung Papa\n\nvar dtString= ZeitAktuell.getDate()+\".\"+\n                (ZeitAktuell.getMonth()<9?\"0\":\"\")+\n                (1+ZeitAktuell.getMonth())+\".\"+\n                ZeitAktuell.getFullYear()+\" \"+ \n                ZeitAktuell.getHours()+\":\"+\n                (ZeitAktuell)+\n                ZeitAktuell.getMinutes()+\":\"+\n                (ZeitAktuell.getSeconds()<10?\"0\":\"\")+\n                ZeitAktuell.getSeconds();\n\n\n////////////////////////////////////////////\n// Fertiges Objekt, was wieder \n// rausgeschickt wird\n////////////////////////////////////////////\n\n\nvar Fertig = {\n    \"payload\": {\n        \"Vin\": Vin,\n//        \"GPS Zeit\": dtString,\n        \"Longitude\": Longitude,\n        \"Latitude\": Latitude,\n//        \"Hoehe über Meeresspiegel\": Altitude,\n//        \"Horizontale Praezisionsverdünnung\": HorizDiluofPreci,\n//        \"Bearing / Lager\": parseFloat((BearingV).toFixed(2)),\n//        \"G Kraft in X Richtung\": parseFloat(Gravity_X.toFixed(2)),\n//        \"G Kraft in Y Richtung\": parseFloat(Gravity_Y.toFixed(2)),\n//        \"G Kraft in Z Richtung\": parseFloat(Gravity_Z.toFixed(2)),\n//        \"G Modifizierung\": GravMod,\n        \"GforceX\": parseFloat(Gravity_XMod.toFixed(2)),\n        \"G Kraft Y modifiziert\": parseFloat(Gravity_YMod.toFixed(2)),\n        \"G Kraft Z modifiziert\": parseFloat(Gravity_ZMod.toFixed(2)),\n        \"Lambda\": Lambda,\n//        \"CO2 Ausstoss\": CO,\n        \"MAF\": parseFloat(MassAirFlowRate.toFixed(2)),\n        \"Speed\": Geschwindigkeit,\n//        \"Kuehlmitteltemperatur in C\": parseFloat(Kuehlmitteltemperatur.toFixed(2)),\n        \"Coolant\": KuehlMod,\n        \"OilTemp\": parseFloat(KuehlmitteltemperaturMod.toFixed(2)),\n//        \"Motorlast Prozent\": parseFloat(Motorlast.toFixed(2)),\n//        \"Batteriespannung\": parseFloat(Batteriespannung.toFixed(2)),\n        \"GasVol\": parseFloat(Benzinstand.toFixed(2)),\n        \"IntakeTemp\": parseFloat(Ansauglufttemperatur.toFixed(2)),\n        \"RPM\": Motordrehzahl,\n        \"EnvTemp\": parseFloat(Umgebungstemperatur.toFixed(2)),\n        \"Boost\": 5,\n        \"Anzahl Insassen\": Insassen,\n        \"Errorcode\": Errorcode,\n        \"Fahrbereit\": Bereit,\n        \"DPFpressure\":Altitude,\n        \"DPFtemp\":Altitude,\n        \"Airbag\":Airbag\n    }\n}\nglobal.set(\"Fahrzeug1Fertig\",Fertig);\n\nstop = global.get(\"Fahrzeug1Airbag\");\nif (stop === true){\n    global.set(\"Fahrzeug1Bereit\", false);\n}\nreturn Fertig;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "3db44d9d.b24952",
+                "e9c1a951.feba08"
+            ]
+        ]
+    },
+    {
+        "id": "eabd056e.f2be68",
+        "type": "csv",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "f5523391.7689e"
+            ]
+        ]
+    },
+    {
+        "id": "276845ee.61307a",
+        "type": "ui_slider",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "label": "Insassen",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "5",
+        "step": 1,
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "45eefbb1.069914"
+            ]
+        ]
+    },
+    {
+        "id": "4a37b5a.51aff4c",
+        "type": "ui_switch",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "label": "Fahrbereit",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "2398da0b.06eb66"
+            ]
+        ]
+    },
+    {
+        "id": "2398da0b.06eb66",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Fahrbereit setzen",
+        "func": "global.set(\"Fahrzeug1Bereit\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45eefbb1.069914",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Insassen setzen",
+        "func": "global.set(\"Fahrzeug1Insassen\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a560413.190c2c",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Error 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Errorcode 1",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 680,
+        "wires": [
+            [
+                "f7d1c609.8c78e8"
+            ]
+        ]
+    },
+    {
+        "id": "ad8ea817.aa2d28",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Error 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Errorcode 2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 740,
+        "wires": [
+            [
+                "f7d1c609.8c78e8"
+            ]
+        ]
+    },
+    {
+        "id": "39a2abf0.9189d4",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Error 3",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Errorcode 3",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 800,
+        "wires": [
+            [
+                "f7d1c609.8c78e8"
+            ]
+        ]
+    },
+    {
+        "id": "f7d1c609.8c78e8",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Errorcode setzen",
+        "func": "global.set(\"Fahrzeug1Error\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ad78100.31c65",
+        "type": "ui_slider",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "label": "G Kräfte",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "10",
+        "step": 1,
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [
+                "923739c4.6ee2d8"
+            ]
+        ]
+    },
+    {
+        "id": "57d48161.d1c85",
+        "type": "ui_slider",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "label": "Kühlmitteltemperatur",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "1000",
+        "step": 1,
+        "x": 160,
+        "y": 1000,
+        "wires": [
+            [
+                "ecd93dbd.6a734"
+            ]
+        ]
+    },
+    {
+        "id": "923739c4.6ee2d8",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Veränderung G Kräfte",
+        "func": "global.set(\"Fahrzeug1G\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ecd93dbd.6a734",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Veränderung Kühlmitteltemperatur",
+        "func": "global.set(\"Fahrzeug1Kuehlmittel\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ffe35d1.6be1ca",
+        "type": "comment",
+        "z": "959dfc43.8dab5",
+        "name": "Fortschritte",
+        "info": "19.01.2020\n\n-  CSV einlesen, aufteilen, eine Nachricht pro      Sekunde ausgeben\n-  Funktion \"Umwandlung\" erstellt. Alle Werte aus   einer Zeile werden eingelesen und in eigene, neue Variablen geschrieben\n-  Timestamp aus CSV wird durch aktuellen Timestamp ersetzt\n- Neues Objekt wird ausgegeben\n\n====================================================\n\n25. / 26.01.2020\n\n- Manuelle Manipulation von Werten implementiert\n    - G Kräfte\n    - Kühlmitteltemperatur\n    - Runden auf zwei Nachkommastellen getestet und eingebaut (.toFixed(2))\n    - nun werden alle Zahlen als Strings ausgegeben\n- eigene Variablen integriert\n    - Fahrbereitschaft\n    - Insassen\n    - Errorcodes\n- Ausgabe nun mit Originalwerten, Wert der Veränderung, neue, manipulierte Werte\n- Umrechnung von Temperaturwerten von ° F in ° C\n\n====================================================\n\n28.01.2020\n\n- Versuch, den \"Begrenzungsblock\" zu pausieren\n- Im Internet gesucht, ein paar Lösungsansätze ausprobiert\n- Leider ohne Erfolg\n- Test + Quelle dazu in Flow \"Tests\"\n\n====================================================\n\n29.01.2020\n- Umwandlung aller gerundeten Strings in Float Zahlen mit der Methode parseFloat()\n- Eigenen Begrenzungsblock geschrieben:\n    CSV wird in globales Feld geschrieben\n    Variable \"Fahrbereit\" wird genutzt, um über automatischen Trigger Zeilen zur Weiterverarbeitung auszugeben\n    Manuellen Trigger eingefügt\n- Variablen / Payloads in Umwandlungsblock angepasst \n\n====================================================\n\n09.02.2020\n- Fahrzeugcockpit erstellt\n- Anzeigen für RPM, Tankfüllung und Geschwindigkeit eingefügt\n- Textfeld für Meldungen eingefügt (Meldungen über MQTT)\n\n====================================================\n\n10.02.2020\n- Erste Verbindung mit Controller und GUI hergestellt\n- Namen der Variablen in JSON Datei festgelegt und geprüft\n- Vin Variable eingefügt (Vehicle Idenfitication Number)\n- Verbindung geprüft\n- Unfallfunktion (Airbag) eingefügt und getestet \n--> Fahrzeug setzt \"Airbag ausgelöst\", Fahrbereitschaft wird auf false gesetzt und es muss manuell wieder gestartet werden\n- Meldungen über MQTT von GUI können empfangen und ausgegeben werden\n- Verdrahtungsplan für Raspberry erstellt (Hardware wird eingefügt)\n",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f68529f8.27ac78",
+        "type": "file in",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "filename": "/home/pi/Desktop/trackLog5zeilen.csv",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "92bcffdc.5ad35"
+            ]
+        ]
+    },
+    {
+        "id": "7665d078.a6987",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "f68529f8.27ac78"
+            ]
+        ]
+    },
+    {
+        "id": "8366d010.3d5c2",
+        "type": "split",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 720,
+        "y": 100,
+        "wires": [
+            [
+                "c890ace6.7dc97"
+            ]
+        ]
+    },
+    {
+        "id": "c890ace6.7dc97",
+        "type": "delay",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "6d91ec69.f14af4"
+            ]
+        ]
+    },
+    {
+        "id": "4b8b3255.a6328c",
+        "type": "function",
+        "z": "921bc19d.c8733",
+        "name": "Umwandlung",
+        "func": "// Einlesen der Werte aus CSV und speichern\n// in eigenen Variablen\n\nvar Zeit = msg.payload[\"GPS Time\"];\nvar Geraetezeit = msg.payload[\"Device Time\"];\nvar Longitude = msg.payload.Longitude;\nvar Latitude = msg.payload.Latitude;\nvar GPSGeschwindigkeit = msg.payload[\"GPS Speed(km/h)\"];\nvar HorizDiluofPreci = msg.payload[\"Horizontal Dilution of Precision\"];\nvar Altitude = msg.payload[\"Altitude(m)\"];\nvar Bearing = msg.payload.Bearing;\nvar Gravity_X = msg.payload[\"Gravity X(G)\"];\nvar Gravity_Y = msg.payload[\"Gravity Y(G)\"];\nvar Gravity_Z = msg.payload[\"Gravity Z(G)\"];\nvar EGR = msg.payload[\"EGR Commanded(%)\"];\nvar Lambda = msg.payload[\"Commanded Equivalence Ratio(lambda)\"];\nvar CO = msg.payload[\"CO₂ in g/km (Instantaneous)(g/km)\"];\nvar MassAirFlowRate = msg.payload[\"Mass Air Flow Rate(g/s)\"];\nvar Geschwindigkeit = msg.payload[\"Speed (OBD)(km/h)\"];\nvar TransmissionTemperature = msg.payload[\"Transmission Temperature(Method 1)(°F)\"];\nvar GPSLatitude = msg.payload[\"GPS Latitude(°)\"];\nvar GPSLongitude = msg.payload[\"GPS Longitude(°)\"];\nvar KuehlmitteltemperaturF = msg.payload[\"Engine Coolant Temperature(°F)\"];\nvar Motorlast = msg.payload[\"Engine Load(%)\"];\nvar MotorlastAbsolut = msg.payload[\"Engine Load(Absolute)(%)\"];\nvar o2Sensor1 = msg.payload[\"O2 Sensor1 wide-range Voltage\"];\nvar o2Sensor2 = msg.payload[\"O2 Sensor1 Equivalence Ratio\"];\nvar Gaspedalstellung = msg.payload[\"Accelerator PedalPosition D(%)\"];\nvar RelativeGaspedalstellung = msg.payload[\"Relative Accelerator Pedal Position(%)\"];\nvar Saugrohrdruck = msg.payload[\"Intake Manifold Pressure(kpa)\"];\nvar Batteriespannung = msg.payload[\"Voltage (Control Module)(V)\"];\nvar Benzinstand = msg.payload[\"Fuel Level (From Engine ECU)(%)\"];\nvar ActualEngineTorque = msg.payload[\"Actual engine % torque(%)\"];\nvar AnsauglufttemperaturF = msg.payload[\"Intake Air Temperature(°F)\"];\nvar Kraftstoffdurchflussmenge = msg.payload[\"Fuel flow rate/minute(cc/min)\"];\nvar Boost = msg.payload[\"Turbo Boost & Vacuum Gauge(bar)\"];\nvar Motordrehzahl = msg.payload[\"Engine RPM(rpm)\"];\nvar UmgebungstemperaturF = msg.payload[\"Ambient air temp(°F)\"];\n\n\n////////////////////////////////////////////\n// Selbst eingefügte Werte\n////////////////////////////////////////////\n\nvar Insassen = global.get (\"Fahrzeug1Insassen\");\nvar Errorcode = global.get (\"Fahrzeug1Error\");\nvar Bereit = global.get (\"Fahrzeug1Bereit\");\nvar GravMod = global.get(\"Fahrzeug1G\");\nvar KuehlMod = global.get(\"Fahrzeug1Kuehlmittel\");\n\n\n////////////////////////////////////////////\n// Umrechnungen\n////////////////////////////////////////////\n\n// Umrechnung Kühlmitteltemperatur von ° F in ° C\nvar Kuehlmitteltemperatur = (KuehlmitteltemperaturF - 32) / 1.8;\n\n// Umrechnung Ansauglufttemperatur von ° F in ° C\nvar Ansauglufttemperatur = (AnsauglufttemperaturF - 32) / 1.8;\n\n// Umrechnung Umgebungstemperatur von ° F in ° C\nvar Umgebungstemperatur = (UmgebungstemperaturF - 32) / 1.8;\n\n// Ersetzt die aus der CSV eingelesene Uhrzeit\n// durch die aktuelle Zeit\n\n\n\n////////////////////////////////////////////\n// Manuelle Änderung von Werten\n////////////////////////////////////////////\n\nvar Gravity_XMod = Gravity_X + GravMod;\nvar Gravity_YMod = Gravity_Y + GravMod;\nvar Gravity_ZMod = Gravity_Z + GravMod;\nvar KuehlmitteltemperaturMod = Kuehlmitteltemperatur + KuehlMod;\n\nvar ZeitAktuell = new Date();\n//msg.payload = ZeitAktuell;\n\n// Datumsformatierung Papa\nvar dtString= ZeitAktuell.getDate()+\".\"+\n                (ZeitAktuell.getMonth()<9?\"0\":\"\")+\n                (1+ZeitAktuell.getMonth())+\".\"+\n                ZeitAktuell.getFullYear()+\" \"+ \n                ZeitAktuell.getHours()+\":\"+\n                (ZeitAktuell)+\n                ZeitAktuell.getMinutes()+\":\"+\n                (ZeitAktuell.getSeconds()<10?\"0\":\"\")+\n                ZeitAktuell.getSeconds();\n\n\n////////////////////////////////////////////\n// Fertiges Objekt Rohdaten, was wieder \n// rausgeschickt wird\n////////////////////////////////////////////\n\nvar Fertig = {\n    \"payload\": {\n        \"GPS Zeit\": dtString,\n        \"Laengengrad\": Longitude,\n        \"Breitengrad\": Latitude,\n        \"Hoehe über Meeresspiegel\": Altitude,\n        \"Horizontale Praezisionsverdünnung\": HorizDiluofPreci,\n        \"Bearing / Lager\": Bearing,\n        \"G Kraft in X Richtung\": Gravity_X,\n        \"G Kraft in Y Richtung\": Gravity_Y,\n        \"G Kraft in Z Richtung\": Gravity_Z,\n        \"G Modifizierung\": GravMod,\n        \"G Kraft X modifiziert\": Gravity_XMod,\n        \"G Kraft Y modifiziert\": Gravity_YMod,\n        \"G Kraft Z modifiziert\": Gravity_ZMod,\n        \"Befohlenes Aequivalenzverhaeltnis\": Lambda,\n        \"CO2 Ausstoss\": CO,\n        \"Luftmassenstrom\": MassAirFlowRate,\n        \"Geschwindigkeit\": Geschwindigkeit,\n        \"Kuehlmitteltemperatur in C\": Kuehlmitteltemperatur,\n        \"Kuehlmittel Modifizierung\": KuehlMod,\n        \"Kuehlmittel modifiziert\": KuehlmitteltemperaturMod,\n        \"Motorlast Prozent\": Motorlast,\n        \"Batteriespannung\": Batteriespannung,\n        \"Tankfuellung\": Benzinstand,\n        \"Ansauglufttemperatur in C\": Ansauglufttemperatur,\n        \"Motordrehzahl\": Motordrehzahl,\n        \"Umgebungstemperatur\": Umgebungstemperatur,\n        \"Anzahl Insassen\": Insassen,\n        \"Errorcode\": Errorcode,\n        \"Fahrbereit\": Bereit\n    }\n}\n\nreturn Fertig;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 180,
+        "wires": [
+            [
+                "b5a38347.9f4f9"
+            ]
+        ]
+    },
+    {
+        "id": "b5a38347.9f4f9",
+        "type": "debug",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 970,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "92bcffdc.5ad35",
+        "type": "csv",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "x": 580,
+        "y": 100,
+        "wires": [
+            [
+                "8366d010.3d5c2"
+            ]
+        ]
+    },
+    {
+        "id": "3cf7471c.967b18",
+        "type": "delay",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "pauseType": "delayv",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "4b8b3255.a6328c"
+            ]
+        ]
+    },
+    {
+        "id": "b960893e.8f0668",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "delay",
+        "payload": "2000",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "6d91ec69.f14af4"
+            ]
+        ]
+    },
+    {
+        "id": "6d91ec69.f14af4",
+        "type": "join",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "20ed7c00.797374"
+            ]
+        ]
+    },
+    {
+        "id": "5b6606aa.00e868",
+        "type": "change",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.delay",
+                "pt": "msg",
+                "to": "delay",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.value",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 413,
+        "wires": [
+            [
+                "3cf7471c.967b18"
+            ]
+        ]
+    },
+    {
+        "id": "20ed7c00.797374",
+        "type": "switch",
+        "z": "921bc19d.c8733",
+        "name": "Pass value msgs",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "value",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "5b6606aa.00e868"
+            ]
+        ]
+    },
+    {
+        "id": "2c5d652f.8456ca",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "delay",
+        "payload": "3000",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 161,
+        "y": 358,
+        "wires": [
+            [
+                "6d91ec69.f14af4"
+            ]
+        ]
+    },
+    {
+        "id": "e8eb0f00.7ab2d",
+        "type": "comment",
+        "z": "921bc19d.c8733",
+        "name": "Testflow aus dem Internet",
+        "info": "28.01.2020\nhttps://discourse.nodered.org/t/the-delay-node-not-doing-what-i-want/854/5\n\nBeitrag von Colin, 05.06.2018\n",
+        "x": 130,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "631884ae.22935c",
+        "type": "delay",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "pauseType": "delayv",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 760,
+        "y": 780,
+        "wires": [
+            [
+                "9e989b33.fc5348"
+            ]
+        ]
+    },
+    {
+        "id": "6ee5ff8b.45f16",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "delay",
+        "payload": "2000",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 272,
+        "y": 688,
+        "wires": [
+            [
+                "d4c2ab06.820d08"
+            ]
+        ]
+    },
+    {
+        "id": "706765ef.436afc",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "value",
+        "payload": "Banana",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 279,
+        "y": 801,
+        "wires": [
+            [
+                "d4c2ab06.820d08"
+            ]
+        ]
+    },
+    {
+        "id": "d4c2ab06.820d08",
+        "type": "join",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 443,
+        "y": 731,
+        "wires": [
+            [
+                "9e36edc.6027f1"
+            ]
+        ]
+    },
+    {
+        "id": "5f550b15.ded734",
+        "type": "change",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.delay",
+                "pt": "msg",
+                "to": "delay",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.value",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 572,
+        "y": 781,
+        "wires": [
+            [
+                "631884ae.22935c"
+            ]
+        ]
+    },
+    {
+        "id": "9e36edc.6027f1",
+        "type": "switch",
+        "z": "921bc19d.c8733",
+        "name": "Pass value msgs",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "value",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 612,
+        "y": 731,
+        "wires": [
+            [
+                "5f550b15.ded734"
+            ]
+        ]
+    },
+    {
+        "id": "3480620f.75a2be",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "delay",
+        "payload": "3000",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 273,
+        "y": 726,
+        "wires": [
+            [
+                "d4c2ab06.820d08"
+            ]
+        ]
+    },
+    {
+        "id": "9e989b33.fc5348",
+        "type": "debug",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 751,
+        "y": 834,
+        "wires": []
+    },
+    {
+        "id": "f5523391.7689e",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "Werte aus CSV kontrolliert ausgeben",
+        "func": "\n\nif ((msg.payload == \"next\") || (msg.payload == \"autoNext\"))\n{\n    var fb = global.get(\"Fahrzeug1Bereit\");\n    if ((fb === false) && (msg.payload == \"autoNext\"))\n    {\n        return (null);\n    }\n    var aktuelCounter = global.get(\"Feld1Counter\");\n    var aktuelleDaten = global.get(\"Feld1\");\n    \n    var maxCount = aktuelleDaten.length;\n    if (maxCount == aktuelCounter)\n    {\n        node.status({text:\"Alle Werte ausgegeben!\"});\n        return NULL;\n    }\n    var ret = aktuelleDaten[aktuelCounter];\n    aktuelCounter = aktuelCounter +1;\n    node.status({text:\"Wert \"+ aktuelCounter.toString() + \" von \" + maxCount.toString() + \" ausgegeben\"});\n    global.set(\"Feld1Counter\",aktuelCounter);\n    // gebe nächstes Element aus\n    return [ret];\n}\n\nvar werte  = msg.payload;\n// neues array mit Nutzdaten\nglobal.set(\"Feld1\",werte);\nglobal.set(\"Feld1Counter\",0);\nnode.status({text:\"neue Werte geladen\"});\n\nreturn (null);\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 810,
+        "y": 160,
+        "wires": [
+            [
+                "954969cf.dabe48"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3d93bc65.706724",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 1000,
+        "wires": [
+            [
+                "ddbc8bf7.0b7878"
+            ]
+        ]
+    },
+    {
+        "id": "ddbc8bf7.0b7878",
+        "type": "function",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "func": "var msg1 = { payload:\"first out of output 1\" };\nvar msg2 = { payload:\"second out of output 1\" };\nvar msg3 = { payload:\"third out of output 1\" };\n//var msg4 = { payload:\"only message from output 2\" };\nreturn  [[ msg1, msg2, msg3 ]];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 1000,
+        "wires": [
+            [
+                "78632b35.2311c4"
+            ]
+        ]
+    },
+    {
+        "id": "78632b35.2311c4",
+        "type": "debug",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 560,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "5f04503.e7ce7b",
+        "type": "inject",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            [
+                "d03bd138.41e9"
+            ]
+        ]
+    },
+    {
+        "id": "d03bd138.41e9",
+        "type": "function",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "func": "var newMsg = { payload: msg.payload.length };\nreturn [msg, newMsg];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 1100,
+        "wires": [
+            [
+                "49dc350e.77de7c"
+            ]
+        ]
+    },
+    {
+        "id": "49dc350e.77de7c",
+        "type": "debug",
+        "z": "921bc19d.c8733",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 560,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "76abc3fe.083f8c",
+        "type": "inject",
+        "z": "959dfc43.8dab5",
+        "name": "autoNext",
+        "topic": "",
+        "payload": "autoNext",
+        "payloadType": "str",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "f5523391.7689e"
+            ]
+        ]
+    },
+    {
+        "id": "1f668153.24dc6f",
+        "type": "inject",
+        "z": "959dfc43.8dab5",
+        "name": "manuel next",
+        "topic": "",
+        "payload": "next",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "f5523391.7689e"
+            ]
+        ]
+    },
+    {
+        "id": "23c35700.adc98a",
+        "type": "mqtt in",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "topic": "/Fahrzeug1/Meldungen",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c07be590.fcab68",
+        "x": 740,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3db44d9d.b24952",
+        "type": "json",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "1320db1f.4862e5"
+            ]
+        ]
+    },
+    {
+        "id": "4e762c02.b0ba64",
+        "type": "function",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "func": "var alles = global.get(\"Fahrzeug1Fertig\");\n\n/*var drehzahl = alles.payload.Motordrehzahl;\nvar drehzahl2 = drehzahl.toString();\n\nnode.status({text: drehzahl2});\nvar motordrehzahl = parseFloat(alles.payload.Motordrehzahl);\nnode.status({text:\"Wert \"+ motordrehzahl});\n*/\nreturn alles;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "dd35f6c2.a624d8"
+            ]
+        ]
+    },
+    {
+        "id": "e3c3a1e.715756",
+        "type": "inject",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "4e762c02.b0ba64"
+            ]
+        ]
+    },
+    {
+        "id": "1320db1f.4862e5",
+        "type": "mqtt out",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "topic": "/Fahrzeug1",
+        "qos": "",
+        "retain": "",
+        "broker": "c07be590.fcab68",
+        "x": 470,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "dd35f6c2.a624d8",
+        "type": "json",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 470,
+        "y": 60,
+        "wires": [
+            [
+                "ba484141.32e41"
+            ]
+        ]
+    },
+    {
+        "id": "ba484141.32e41",
+        "type": "function",
+        "z": "dd038d25.c9f7e",
+        "name": "Werte fürs Cockpit",
+        "func": "var msg1 = {payload: msg.payload.RPM};\n// Output 1\n\nvar msg2 = {payload: msg.payload.Speed};\n// Output 2\n\nvar msg3 = {payload: msg.payload.GasVol};\n// Output 3\n\nvar Fahrbereit = global.get(\"Fahrzeug1Bereit\");\nnode.status ({text: \"Fährt: \" + Fahrbereit});\n\nif (Fahrbereit === false) {\n    msg1 = {payload: \"0\"};\n    msg2 = {payload: \"0\"};\n    msg3 = {payload: \"0\"};\n}\nif (Fahrbereit === true) {\n    msg1 = msg1;\n    msg2 = msg2;\n    msg3 = msg3;\n}\n\n\nreturn [msg1, msg2, msg3];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "dddf5e6b.772cd"
+            ],
+            [
+                "686f15df.f58ecc"
+            ],
+            [
+                "691e1c76.abe3a4"
+            ]
+        ]
+    },
+    {
+        "id": "dddf5e6b.772cd",
+        "type": "ui_gauge",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "group": "7ce5f44b.5e2bdc",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Drehzahl",
+        "label": "rpm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "3000",
+        "seg2": "4000",
+        "x": 480,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "686f15df.f58ecc",
+        "type": "ui_gauge",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "group": "7ce5f44b.5e2bdc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Geschwindigkeit",
+        "label": "Km/h",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#0006b3",
+            "#0013e6",
+            "#3c3aca"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 500,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "691e1c76.abe3a4",
+        "type": "ui_gauge",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "group": "7ce5f44b.5e2bdc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tankfüllung",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#b30000",
+            "#e6e600",
+            "#3aca52"
+        ],
+        "seg1": "10",
+        "seg2": "50",
+        "x": 490,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "77263afa.545104",
+        "type": "ui_text",
+        "z": "dd038d25.c9f7e",
+        "group": "7ce5f44b.5e2bdc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Nachrichten / Meldungen",
+        "format": "☎{{msg.payload}}☎",
+        "layout": "col-center",
+        "x": 430,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8f56b5c9.92b838",
+        "type": "ui_text_input",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "ae3148b0.53c498",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "15801cf2.2a1fd3"
+            ]
+        ]
+    },
+    {
+        "id": "15801cf2.2a1fd3",
+        "type": "mqtt out",
+        "z": "dd038d25.c9f7e",
+        "name": "/Fahrzeug1Nachricht",
+        "topic": "/Fahrzeug1Nachricht",
+        "qos": "",
+        "retain": "",
+        "broker": "c07be590.fcab68",
+        "x": 380,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d52b7196.18999",
+        "type": "mqtt in",
+        "z": "dd038d25.c9f7e",
+        "name": "",
+        "topic": "/Fahrzeug1Nachricht",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c07be590.fcab68",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "77263afa.545104"
+            ]
+        ]
+    },
+    {
+        "id": "ba971072.f2cef",
+        "type": "mqtt in",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "topic": "FMWVB71070VA31234",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c07be590.fcab68",
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "cfd475c4.37f6f8"
+            ]
+        ]
+    },
+    {
+        "id": "cfd475c4.37f6f8",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 460,
+        "wires": [
+            [
+                "6232343f.5ab2dc",
+                "27b433bc.70ac3c"
+            ]
+        ]
+    },
+    {
+        "id": "6232343f.5ab2dc",
+        "type": "mqtt out",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "topic": "/Fahrzeug1Nachricht",
+        "qos": "",
+        "retain": "",
+        "broker": "c07be590.fcab68",
+        "x": 840,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "db5e1246.22398",
+        "type": "inject",
+        "z": "959dfc43.8dab5",
+        "name": "Fahrzeug ID",
+        "topic": "",
+        "payload": "FMWVB71070VA31234",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 1080,
+        "wires": [
+            [
+                "f7047022.516dd"
+            ]
+        ]
+    },
+    {
+        "id": "f7047022.516dd",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "func": "global.set(\"Fahrzeug1ID\",msg.payload);\n//global.set(\"Fahrzeug1Error\",msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 490,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4aa0975a.3683a8",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "group": "ae3148b0.53c498",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Errorcode zurücksetzen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "NULL",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 860,
+        "wires": [
+            [
+                "f7d1c609.8c78e8"
+            ]
+        ]
+    },
+    {
+        "id": "32a544c6.90ebac",
+        "type": "inject",
+        "z": "959dfc43.8dab5",
+        "name": "Startwerte",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 1160,
+        "wires": [
+            [
+                "e9dbc3a9.225b5"
+            ]
+        ]
+    },
+    {
+        "id": "e9dbc3a9.225b5",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "func": "global.set(\"Fahrzeug1Kuehlmittel\",msg.payload);\nglobal.set(\"Fahrzeug1G\",msg.payload);\nglobal.set(\"Fahrzeug1Insassen\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27b433bc.70ac3c",
+        "type": "debug",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 660,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7d7c482b.048208",
+        "type": "ui_button",
+        "z": "959dfc43.8dab5",
+        "name": "Airbag",
+        "group": "ae3148b0.53c498",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Airbag",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 530,
+        "y": 820,
+        "wires": [
+            [
+                "6c968e6e.76afe"
+            ]
+        ]
+    },
+    {
+        "id": "5fc5d5d.befa22c",
+        "type": "function",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "func": "global.set(\"Fahrzeug1Airbag\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 860,
+        "y": 820,
+        "wires": [
+            [
+                "d7faecd8.83263",
+                "4a37b5a.51aff4c"
+            ]
+        ]
+    },
+    {
+        "id": "6c968e6e.76afe",
+        "type": "trigger",
+        "z": "959dfc43.8dab5",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "5fc5d5d.befa22c"
+            ]
+        ]
+    },
+    {
+        "id": "e9c1a951.feba08",
+        "type": "debug",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d7faecd8.83263",
+        "type": "debug",
+        "z": "959dfc43.8dab5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 820,
+        "y": 920,
+        "wires": []
+    }
+]
